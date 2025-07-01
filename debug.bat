@@ -1,0 +1,1 @@
+npx @modelcontextprotocol/inspector uv run /Development/Gcloud/gmail-mcp-server/src/gmail/server.py --creds-file-path /Development/Gcloud/gmail-mcp-server/creds/client_secret_dt.json --token-path /Users/koolt/AppData/Roaming/BlindGmail/access-tokens.json

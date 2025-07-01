@@ -10,6 +10,13 @@ dependencies = [
     "google-api-python-client>=2.156.0",
     "google-auth-httplib2>=0.2.0",
     "google-auth-oauthlib>=1.2.1",
+    "google-auth>=2.17.0",  # Enhanced auth capabilities
+    "fastmcp=*",
+]
+
+[project.optional-dependencies]
+cloud = [
+    "google-cloud-secret-manager>=2.16.0",  # For cloud secret management
 ]
 [build-system]
 requires = [ "hatchling",]

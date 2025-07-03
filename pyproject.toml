@@ -1,26 +1,31 @@
 [project]
-name = "gmail"
+name = "gmail-mcp-server"
 version = "0.1.0"
-description = "Model Context Protocol server for gmail"
-readme = "README.md"
-requires-python = ">=3.12"
+description = "A simple MCP server for interacting with the Gmail API."
+authors = [{ name = "You", email = "you@example.com" }]
 dependencies = [
-    "httpx>=0.28.1",
-    "mcp>=1.1.2",
-    "google-api-python-client>=2.156.0",
-    "google-auth-httplib2>=0.2.0",
-    "google-auth-oauthlib>=1.2.1",
-    "google-auth>=2.17.0",  # Enhanced auth capabilities
-    "fastmcp=*",
+    "google-api-python-client",
+    "google-auth-httplib2",
+    "google-auth-oauthlib",
+    "fastmcp",
 ]
 
 [project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-asyncio",
+]
 cloud = [
+    "google-api-python-client",
     "google-cloud-secret-manager>=2.16.0",  # For cloud secret management
 ]
+
 [build-system]
-requires = [ "hatchling",]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/gmail"]
+
 [project.scripts]
-gmail = "gmail:main"
+gmail = "gmail.server:main"

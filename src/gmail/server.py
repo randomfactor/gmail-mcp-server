@@ -221,7 +221,6 @@ class GmailService:
 gmail_service: GmailService
 server = FastMCP(
     name="gmail",
-    version="0.1.0",
 )
 
 # Define the prompt content for the email administrator persona.
@@ -245,7 +244,6 @@ Always ask for approval if not already given.
 @server.prompt(
     name="manage-email",
     description="Act like an email administator",
-    arguments=None,
 )
 async def manage_email() -> list[types.PromptMessage]:
     return [
@@ -261,23 +259,6 @@ async def manage_email() -> list[types.PromptMessage]:
 @server.prompt(
     name="draft-email",
     description="Draft an email with cotent and recipient",
-    arguments=[
-        types.PromptArgument(
-            name="content",
-            description="What the email is about",
-            required=True
-        ),
-        types.PromptArgument(
-            name="recipient",
-            description="Who should the email be addressed to",
-            required=True
-        ),
-        types.PromptArgument(
-            name="recipient_email",
-            description="Recipient's email address",
-            required=True
-        ),
-    ],
 )
 async def draft_email(content: str, recipient: str, recipient_email: str) -> list[types.PromptMessage]:
     """Please draft an email about {content} for {recipient} ({recipient_email}).
@@ -298,18 +279,6 @@ async def draft_email(content: str, recipient: str, recipient_email: str) -> lis
 @server.prompt(
     name="edit-draft",
     description="Edit the existing email draft",
-    arguments=[
-        types.PromptArgument(
-            name="changes",
-            description="What changes should be made to the draft",
-            required=True
-        ),
-        types.PromptArgument(
-            name="current_draft",
-            description="The current draft to edit",
-            required=True
-        ),
-    ],
 )
 async def edit_draft(changes: str, current_draft: str) -> list[types.PromptMessage]:
     """Please revise the current email draft:

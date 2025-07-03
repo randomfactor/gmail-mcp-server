@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Launch Gmail Server",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "gmail.server",
+            "args": [
+                "--creds-file-path",
+                "${workspaceFolder}/creds/client_secret_dt.json",
+                "--token-path",
+                "C:\\Users\\koolt\\AppData\\Roaming\\BlindGmail\\access-tokens.json"
+            ],
+            "justMyCode": true
+        }
+    ]
+}

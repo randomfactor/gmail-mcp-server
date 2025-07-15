@@ -343,14 +343,11 @@ async def open_email(email_id: str) -> str:
     """Open email in browser"""
     return await gmail_service.open_email(email_id)
 
-async def main(creds_file_path: str,
-               token_path: str):
-    
-    global gmail_service
-    gmail_service = GmailService(creds_file_path, token_path)
-    await server.run()
-
-if __name__ == "__main__":
+def main():
+    """
+    Initializes the Gmail service and starts the FastMCP server.
+    This function is the entry point for the application.
+    """
     parser = argparse.ArgumentParser(description='Gmail API MCP Server')
     parser.add_argument('--creds-file-path',
                         required=True,
@@ -360,4 +357,10 @@ if __name__ == "__main__":
                        help='File location to store and retrieve access and refresh tokens for application')
     
     args = parser.parse_args()
-    asyncio.run(main(args.creds_file_path, args.token_path))
+
+    global gmail_service
+    gmail_service = GmailService(args.creds_file_path, args.token_path)
+    server.run()
+
+if __name__ == "__main__":
+    main()

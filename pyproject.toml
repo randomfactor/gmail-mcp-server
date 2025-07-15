@@ -1,6 +1,7 @@
 [project]
 name = "gmail-mcp-server"
 version = "0.1.0"
+requires-python = ">=3.12"
 description = "A simple MCP server for interacting with the Gmail API."
 authors = [{ name = "You", email = "you@example.com" }]
 dependencies = [

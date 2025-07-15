@@ -12,6 +12,22 @@
                 "--token-path",
                 "C:\\Users\\koolt\\AppData\\Roaming\\BlindGmail\\access-tokens.json"
             ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "purpose": [
+                "debug-test"
+            ],
+            "console": "internalConsole",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            },
             "justMyCode": true
         }
     ]
